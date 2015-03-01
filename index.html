@@ -1,13 +1,55 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Github releases RSS feed</title>
+	<meta charset="utf-8">
+	<title>Github releases RSS feed</title>
+	<style>
+	body {
+		font-size: 14px;
+		font-family: sans-serif;
+	}
+
+	form {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		max-width: 400px;
+		text-align: center;
+		transform: translate(-50%, -2em);
+	}
+
+	input, button {
+		font-size: inherit;
+		border-radius: 6px;
+		border: 1px solid #ddd;
+		padding: 1em;
+	}
+
+	button {
+		background: #eee;
+		cursor: pointer;
+	}
+
+	.help, a {
+		display: block;
+		margin-top: 2em;
+		font-size: 0.8em;
+	}
+
+	a {
+		text-decoration: none;
+		color: #2196F3;
+	}
+	</style>
 </head>
 <body>
 <form>
 	<input name="name" type="text" placeholder="Github username">
 	<button>Get releases feed</button>
+
+	<div class="help">Enter your Github username to get an Atom feed of every tag you've pushed in the last week or so. We don't store this data anywhere.</div>
+
+	<a href="https://github.com/quarterto/github-releases">View on Github</a>
 </form>
 
 <script>
