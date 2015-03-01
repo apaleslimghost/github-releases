@@ -1,7 +1,6 @@
 var express = require('express');
 var cheerio = require('cheerio');
 var request = require('request');
-var xml     = require('xml');
 
 var app = express();
 
