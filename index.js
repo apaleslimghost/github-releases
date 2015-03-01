@@ -63,6 +63,10 @@ app.param('user', function(req, res, next, id) {
 	});
 });
 
+app.get('/', function(req, res) {
+	res.sendFile(__dirname + '/index.html');
+});
+
 app.get('/:user.atom', function(req, res) {
 	var $ = cheerio.load(req.feed);
 	var feed = feedWrapper($, req.hostname);

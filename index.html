@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Github releases RSS feed</title>
+</head>
+<body>
+<form>
+	<input name="name" type="text" placeholder="Github username">
+	<button>Get releases feed</button>
+</form>
+
+<script>
+var form = document.forms[0];
+var user = form.elements.namedItem('name');
+
+form.addEventListener('submit', function(ev) {
+	ev.preventDefault();
+	location.pathname = user.value + '.atom';
+});
+</script>
+</body>
+</html>
