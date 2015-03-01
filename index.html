@@ -30,7 +30,7 @@
 		cursor: pointer;
 	}
 
-	.help, a {
+	.help {
 		display: block;
 		margin-top: 2em;
 		font-size: 0.8em;
@@ -39,6 +39,10 @@
 	a {
 		text-decoration: none;
 		color: #2196F3;
+	}
+
+	a + a {
+		margin-left: 1em;
 	}
 	</style>
 </head>
@@ -49,7 +53,13 @@
 
 	<div class="help">Enter your Github username to get an Atom feed of every tag you've pushed in the last week or so. We don't store this data anywhere.</div>
 
-	<a href="https://github.com/quarterto/github-releases">View on Github</a>
+	<div class="help">
+		Made with ♥ by <a href="http://github.com/quarterto">quarterto</a>
+
+		<a href="https://github.com/quarterto/github-releases">View on Github</a>
+
+		<a href="https://ifttt.com/recipes/264957-post-github-releases-to-twitter">Sample IFTTT recipe</a>
+	</div>
 </form>
 
 <script>
