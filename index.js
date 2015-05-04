@@ -41,12 +41,12 @@ function getTagEntries($) {
 }
 
 var parseTitle = /(.+)'s Activity/;
-function feedWrapper($, host) {
+function feedWrapper($, host, protocol) {
 	var feed = $('feed').clone();
 	var user = feed.find('title').text().match(parseTitle)[1];
 	feed.find('entry').remove();
 	feed.find('title').text(user + '&#39;s software releases');
-	feed.find('[rel="self"]').attr('href', 'http://' + host + '/' + user + '.atom');
+	feed.find('[rel="self"]').attr('href', protocol + '://' + host + '/' + user + '.atom');
 	return feed;
 }
 
@@ -69,7 +69,7 @@ app.get('/', function(req, res) {
 
 app.get('/:user.atom', function(req, res) {
 	var $ = cheerio.load(req.feed);
-	var feed = feedWrapper($, req.hostname);
+	var feed = feedWrapper($, req.hostname, req.protocol);
 	var entries = getTagEntries($);
 	feed.append(entries);
 
