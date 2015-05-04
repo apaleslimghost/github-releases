@@ -29,6 +29,7 @@ function entryHref(tag) {
 function mungeEntry(entry, tag) {
 	entry.find('title').text(entryTitle(tag));
 	entry.find('link').attr('href', entryHref(tag));
+	entry.find('content').text(entry.find('content').html());
 	var thumb = entry.find('media\\:thumbnail');
 	thumb.attr('url', (thumb.attr('url') || '').replace(/&/g, '&amp;'));
 	return entry;
@@ -70,7 +71,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/:user.atom', function(req, res) {
-	var $ = cheerio.load(req.feed);
+	var $ = cheerio.load(req.feed, {xmlMode: true});
 	var feed = feedWrapper($, req.hostname, req.protocol);
 	var entries = getTagEntries($);
 	feed.append(entries);
