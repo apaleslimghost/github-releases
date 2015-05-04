@@ -29,6 +29,8 @@ function entryHref(tag) {
 function mungeEntry(entry, tag) {
 	entry.find('title').text(entryTitle(tag));
 	entry.find('link').attr('href', entryHref(tag));
+	var thumb = entry.find('media:thumbnail');
+	thumb.attr('href', thumb.attr('href').replace(/&/g, '&amp;'));
 	return entry;
 }
 
