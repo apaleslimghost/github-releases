@@ -43,10 +43,10 @@ function getTagEntries($) {
 	}).filter(Boolean);
 }
 
-var parseTitle = /(.+)'s Activity/;
+var parseTitle = /(.+)’s Activity/;
 function feedWrapper($, host, protocol) {
 	var feed = $('feed').clone();
-	var user = feed.find('title').text().match(parseTitle)[1];
+	var user = feed.find('feed > title').text().match(parseTitle)[1];
 	feed.find('entry').remove();
 	feed.find('title').text(user + '&#39;s software releases');
 	feed.find('[rel="self"]').attr('href', protocol + '://' + host + '/' + user + '.atom');
