@@ -70,6 +70,10 @@ app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/logo.svg', function(req, res) {
+	res.sendFile(__dirname + '/logo.svg');
+});
+
 app.get('/:user.atom', function(req, res) {
 	var $ = cheerio.load(req.feed, {xmlMode: true});
 	var feed = feedWrapper($, req.hostname, req.protocol);
