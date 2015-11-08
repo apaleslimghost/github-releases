@@ -67,7 +67,11 @@ app.param('user', function(req, res, next, id) {
 });
 
 app.get('/', function(req, res) {
-	res.sendFile(__dirname + '/index.html');
+	if(req.query.name) {
+		res.redirect(301, '/' + req.query.name + '.atom')
+	} else {
+		res.sendFile(__dirname + '/index.html');
+	}
 });
 
 app.get('/logo.svg', function(req, res) {
